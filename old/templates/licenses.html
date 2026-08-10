@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Licenses</h2>
+<a href="/add_license">➕ Add New License</a>
+<table border="1">
+<tr>
+  <th>ID</th><th>Name</th><th>Vendor</th><th>Quantity</th>
+  <th>Status</th><th>Purchase Date</th><th>Action</th>
+</tr>
+{% for l in data %}
+<tr>
+  <td>{{ l.license_id }}</td>
+  <td>{{ l.license_name }}</td>
+  <td>{{ l.vendor_name or 'N/A' }}</td>
+  <td>{{ l.license_quantity }}</td>
+  <td>{{ l.license_status }}</td>
+  <td>{{ l.purchase_date }}</td>
+  <td><a href="/renew/{{ l.license_id }}">♻️ Renew</a></td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

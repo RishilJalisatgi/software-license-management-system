@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>📊 Dashboard</h2>
+
+<p>Total Licenses: {{ stats.total_licenses }}</p>
+<p>Active Licenses: {{ stats.active_licenses }}</p>
+<p>Expired Licenses: {{ stats.expired_licenses }}</p>
+
+<h3>Vendor-wise License Count</h3>
+<table border="1">
+<tr><th>Vendor</th><th>License Count</th></tr>
+{% for v in vendor_data %}
+<tr><td>{{ v.vendor_name }}</td><td>{{ v.license_count }}</td></tr>
+{% endfor %}
+</table>
+{% endblock %}

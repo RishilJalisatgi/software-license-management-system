@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Add New License</h2>
+<form method="POST">
+  <label>License Key:</label><input type="text" name="license_key" required><br>
+  <label>License Name:</label><input type="text" name="license_name" required><br>
+  <label>Purchase Date:</label><input type="date" name="purchase_date" required><br>
+  <label>Quantity:</label><input type="number" name="quantity" min="1" value="1"><br>
+  <label>Vendor:</label>
+  <select name="vendor_id">
+    {% for v in vendors %}
+    <option value="{{ v.vendor_id }}">{{ v.vendor_name }}</option>
+    {% endfor %}
+  </select><br>
+  <button type="submit">Add License</button>
+</form>
+{% endblock %}

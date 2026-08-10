@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Add New Vendor</h2>
+<form method="POST">
+  <label>Vendor Name:</label><input type="text" name="vendor_name" required><br>
+  <label>Vendor Type:</label><input type="text" name="vendor_type" required><br>
+  <label>Contact Email:</label><input type="email" name="contact_email" required><br>
+  <label>Website URL:</label><input type="url" name="website_url"><br>
+  <label>Active:</label><input type="checkbox" name="is_active" checked><br>
+  <button type="submit">Add Vendor</button>
+</form>
+{% endblock %}

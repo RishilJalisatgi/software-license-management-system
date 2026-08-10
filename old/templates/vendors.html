@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Vendors</h2>
+<a href="/add_vendor">➕ Add New Vendor</a>
+<table border="1">
+  <tr>
+    <th>Vendor ID</th>
+    <th>Vendor Name</th>
+    <th>Vendor Type</th>
+    <th>Contact Email</th>
+    <th>Website</th>
+    <th>Status</th>
+  </tr>
+  {% for vendor in data %}
+  <tr>
+    <td>{{ vendor.vendor_id }}</td>
+    <td>{{ vendor.vendor_name }}</td>
+    <td>{{ vendor.vendor_type }}</td>
+    <td>{{ vendor.contact_email }}</td>
+    <td><a href="{{ vendor.website_url }}" target="_blank">{{ vendor.website_url }}</a></td>
+    <td>{{ 'Active' if vendor.is_active else 'Inactive' }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
